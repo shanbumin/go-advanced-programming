@@ -2,10 +2,6 @@ package main
 
 import (
 	"fmt"
-	"image"
-	"image/jpeg"
-	"image/png"
-	"io"
 )
 
 func main() {
