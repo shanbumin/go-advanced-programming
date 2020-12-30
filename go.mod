@@ -7,6 +7,7 @@ module chai2010.cn/gobook
 require (
 	github.com/bwmarrin/snowflake v0.3.0
 	github.com/chai2010/advanced-go-programming-book v0.0.0-20181214135029-bcf560505d53 // indirect
+	github.com/chai2010/errors v0.0.0-20200705094421-c57ad8baa2b0
 	github.com/coreos/etcd v3.3.22+incompatible // indirect
 	github.com/coreos/go-semver v0.3.0 // indirect
 	github.com/go-redis/redis v6.15.9+incompatible

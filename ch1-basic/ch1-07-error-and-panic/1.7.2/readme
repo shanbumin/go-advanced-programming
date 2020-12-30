@@ -1,0 +1,37 @@
+为此，我们可以定义自己的`github.com/chai2010/errors`包，里面是以下的错误类型：
+
+
+
+type Error interface {
+   Caller() []CallerInfo
+   Wraped() []error
+   Code() int
+   error
+
+   private()
+}
+
+type CallerInfo struct {
+   FuncName string
+   FileName string
+   FileLine int
+}
+
+
+其中`Error`为接口类型，是`error`接口类型的扩展，用于给错误增加调用栈信息，同时支持错误的多级嵌套包装，支持错误码格式。为了使用方便，我们可以定义以下的辅助函数：
+
+
+func New(msg string) error
+func NewWithCode(code int, msg string) error
+
+func Wrap(err error, msg string) error
+func WrapWithCode(code int, err error, msg string) error
+
+func FromJson(json string) (Error, error)
+func ToJson(err error) string
+
+
+`New`用于构建新的错误类型，和标准库中`errors.New`功能类似，但是增加了出错时的函数调用栈信息。
+`FromJson`用于从JSON字符串编码的错误中恢复错误对象。
+`NewWithCode`则是构造一个带错误码的错误，同时也包含出错时的函数调用栈信息。
+`Wrap`和`WrapWithCode`则是错误二次包装函数，用于将底层的错误包装为新的错误，但是保留的原始的底层错误信息。这里返回的错误对象都可以直接调用`json.Marshal`将错误编码为JSON字符串。

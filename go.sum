@@ -2,6 +2,8 @@ github.com/bwmarrin/snowflake v0.3.0 h1:xm67bEhkKh6ij1790JB83OujPR5CzNe8QuQqAgIS
 github.com/bwmarrin/snowflake v0.3.0/go.mod h1:NdZxfVWX+oR6y2K0o6qAYv6gIOP9rjG0/E9WsDpxqwE=
 github.com/chai2010/advanced-go-programming-book v0.0.0-20181214135029-bcf560505d53 h1:aq3N3UiILJGY2ACWiJ6uEktcOT3NK0rikqLN3yzh12k=
 github.com/chai2010/advanced-go-programming-book v0.0.0-20181214135029-bcf560505d53/go.mod h1:V6DFKY/3DuWA1gVR1lM6rnqPfdKquvbsXb1ei9MmipA=
+github.com/chai2010/errors v0.0.0-20200705094421-c57ad8baa2b0 h1:lYpQzwEQrEsz8+m4mKQxKXVVb1Ef/cd7HReEMXAvu6Y=
+github.com/chai2010/errors v0.0.0-20200705094421-c57ad8baa2b0/go.mod h1:wjFXr0DgwZCfXrW1fjFyR8BMmJnGT8xnU02gc+H7hpk=
 github.com/coreos/etcd v3.3.22+incompatible h1:AnRMUyVdVvh1k7lHe61YEd227+CLoNogQuAypztGSK4=
 github.com/coreos/etcd v3.3.22+incompatible/go.mod h1:uF7uidLiAD3TWHmW31ZFd/JWoc32PjwdhPthX9715RE=
 github.com/coreos/go-semver v0.3.0 h1:wkHLiw0WNATZnSG7epLsujiMCgPAc9xhjJ4tgnAxmfM=
