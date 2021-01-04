@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package main;
+
+//todo 因此大家可以暂时忽略Protobuf的成员编码部分。  protoc --go_out=.  --proto_path=.  hello.proto
+message String {
+  string value = 1;
+}
+
+//我们将之前的HelloService服务也放到proto文件中来标准定义
+//todo 这里时候我们执行protoc,但是重新生成的Go代码并没有发生变化。
+//todo 这是因为世界上的RPC实现有千万种，protoc编译器并不知道该如何为HelloService服务生成代码。
+//不过在protoc-gen-go内部已经集成了一个名字为`grpc`的插件，可以针对gRPC生成代码：
+service  HelloService {
+   rpc  Hello (String) returns (String);
+}
+
+//todo protoc --go_out=plugins=grpc:. hello.proto
+//在生成的代码中多了一些类似HelloServiceServer、HelloServiceClient的新类型。这些类型是为gRPC服务的，并不符合我们的RPC要求。
+//不过gRPC插件为我们提供了改进的思路，下面我们将探索如何为我们的RPC生成安全的代码。(注意这里的安全始终指的的是标准化、防呆的概念)

@@ -1,0 +1,31 @@
+Protobuf的protoc编译器是通过插件机制实现对不同语言的支持。
+比如protoc命令出现`--xxx_out`格式的参数，那么protoc将首先查询是否有内置的xxx插件，
+                                      如果没有内置的xxx插件那么将继续查询当前系统中是否存在protoc-gen-xxx命名的可执行程序，
+                                      最终通过查询到的插件生成代码。
+对于Go语言的protoc-gen-go插件来说，里面又实现了一层静态插件系统。
+比如protoc-gen-go内置了一个gRPC插件，用户可以通过`--go_out=plugins=grpc`参数来生成gRPC相关代码，否则只会针对message生成相关代码。
+
+参考gRPC插件的代码，可以发现generator.RegisterPlugin函数可以用来注册插件。插件是一个generator.Plugin接口：
+
+
+```go
+type Plugin interface {
+   Name() string
+   Init(g *Generator)
+   Generate(file *FileDescriptor)
+   GenerateImports(file *FileDescriptor)
+}
+```
+其中Name方法返回插件的名字，这是Go语言的Protobuf实现的插件体系，和protoc插件的名字并无关系。
+然后Init函数是通过g参数对插件进行初始化，g参数中包含Proto文件的所有信息。
+最后的Generate和GenerateImports方法用于生成主体代码和对应的导入包代码。
+
+
+
+
+
+
+
+
+
+

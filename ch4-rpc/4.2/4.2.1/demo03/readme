@@ -1,0 +1,5 @@
+
+
+既然已经使用了Protobuf定义了输入和输出参数，简单让实现了Protobuf和RPC的组合。
+那么RPC服务接口是否也可以通过Protobuf定义呢？其实用Protobuf定义语言无关的RPC服务接口才是它真正的价值所在！
+
